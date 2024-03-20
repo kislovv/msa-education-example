@@ -4,6 +4,13 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <DefineConstants>Models</DefineConstants>
     </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Models\Responses\" />
+    </ItemGroup>
+
+    <Import Project="..\SharedContracts\SharedContracts.projitems" Label="Shared" />
 
 </Project>

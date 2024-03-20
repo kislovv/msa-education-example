@@ -6,4 +6,6 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <Import Project="..\SharedContracts\SharedContracts.projitems" Label="Shared" />
+
 </Project>

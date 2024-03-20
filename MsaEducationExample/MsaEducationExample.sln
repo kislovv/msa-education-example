@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagerAccount", "ManagerAc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogisticHub", "LogisticHub\LogisticHub.csproj", "{74AA715D-8DF8-4231-A312-0FBE47DCABF2}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedContracts", "SharedContracts\SharedContracts.shproj", "{70420DAE-2370-4B0E-877F-3879D3740D1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
