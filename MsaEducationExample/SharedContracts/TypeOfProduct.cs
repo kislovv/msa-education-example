@@ -1,5 +1,5 @@
 ﻿#if Models
-namespace ManagerAccount.Models.Requests; 
+namespace ManagerAccount.Models; 
 #else
 namespace LogisticHub.Entities;
 #endif
