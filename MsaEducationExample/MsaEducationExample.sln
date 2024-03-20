@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagerAccount", "ManagerAccount\ManagerAccount.csproj", "{70F52F1B-9933-49F1-A4F5-D3606873D95D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogisticHub", "LogisticHub\LogisticHub.csproj", "{74AA715D-8DF8-4231-A312-0FBE47DCABF2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{70F52F1B-9933-49F1-A4F5-D3606873D95D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70F52F1B-9933-49F1-A4F5-D3606873D95D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70F52F1B-9933-49F1-A4F5-D3606873D95D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70F52F1B-9933-49F1-A4F5-D3606873D95D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74AA715D-8DF8-4231-A312-0FBE47DCABF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74AA715D-8DF8-4231-A312-0FBE47DCABF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74AA715D-8DF8-4231-A312-0FBE47DCABF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74AA715D-8DF8-4231-A312-0FBE47DCABF2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
