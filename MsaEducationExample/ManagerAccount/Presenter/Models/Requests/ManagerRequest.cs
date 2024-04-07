@@ -1,6 +1,6 @@
-﻿namespace ManagerAccount.Models.Requests;
+﻿namespace ManagerAccount.Presenter.Models.Requests;
 
-public class ManagerRequest
+public abstract class ManagerRequest
 {
     public string Login { get; set; }
     public string Password { get; set; }

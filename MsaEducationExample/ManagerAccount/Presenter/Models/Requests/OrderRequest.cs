@@ -1,4 +1,6 @@
-﻿namespace ManagerAccount.Models.Requests;
+﻿using ManagerAccount.Models.Requests;
+
+namespace ManagerAccount.Presenter.Models.Requests;
 
 /// <summary>
 /// Запрос на создание заявки на доставку груза

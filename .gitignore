@@ -398,3 +398,4 @@ FodyWeavers.xsd
 *.sln.iml
 MsaEducationExample/.idea
 MsaEducationExample/ManagerAccount/appsettings.Development.json
+TransportRental/.idea

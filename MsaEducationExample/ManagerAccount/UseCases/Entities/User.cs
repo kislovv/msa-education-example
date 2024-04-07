@@ -1,4 +1,4 @@
-﻿namespace ManagerAccount.Entities;
+﻿namespace ManagerAccount.UseCases.Entities;
 
 public class User
 {

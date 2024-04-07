@@ -1,4 +1,4 @@
-﻿namespace ManagerAccount.Models.Requests;
+﻿namespace ManagerAccount.Presenter.Models.Requests;
 
 public class LoginRequest
 {

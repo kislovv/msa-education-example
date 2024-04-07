@@ -1,8 +1,8 @@
-﻿using ManagerAccount.Entities;
-using ManagerAccount.Models.Requests;
+﻿using ManagerAccount.Models.Requests;
+using ManagerAccount.UseCases.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace ManagerAccount.DataAccess;
+namespace ManagerAccount.Repositories.DataAccess;
 
 public class AppDbContext : DbContext
 {

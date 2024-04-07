@@ -1,8 +1,5 @@
-﻿#if Models
-namespace ManagerAccount.Models; 
-#else
-namespace LogisticHub.Entities;
-#endif
+﻿namespace ManagerAccount.Repositories.Frameworks.HubIntegrations;
+
 public enum OrderStatus
 {
     Prepared,

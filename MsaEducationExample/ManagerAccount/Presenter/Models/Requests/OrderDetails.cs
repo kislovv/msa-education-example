@@ -1,4 +1,8 @@
-﻿namespace ManagerAccount.Models.Requests;
+﻿#define Models
+
+using ManagerAccount.Models;
+
+namespace ManagerAccount.Presenter.Models.Requests;
 
 /// <summary>
 /// Детали заявки
