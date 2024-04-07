@@ -1,4 +1,5 @@
-﻿using Carter;
+﻿using AutoMapper;
+using Carter;
 using ManagerAccount.Models;
 using ManagerAccount.Models.Requests;
 using ManagerAccount.Presenter.Models.Requests;
@@ -33,33 +34,19 @@ public class ManagerEndpoints : CarterModule
             return Results.Ok();
         });
 
-        app.MapPost("order/create",[Authorize] async (HttpContext context, OrderRequest request, [FromServices] IOrderService orderService) =>
+        app.MapPost("order/create",[Authorize] async (HttpContext context,
+            OrderRequest request, 
+            [FromServices] IOrderService orderService,
+            IMapper mapper) =>
         {
             var managerId = long.Parse(context.User.FindFirst("id")!.Value);
-            var result = await orderService.CreateOrder(new OrderDto
-            {
-                ClientEmail = request.Email,
-                OrderDetails = new OrderDetailsDto
-                {
-                    TypeOfProduct = (TypeOfProductDto)request.OrderDetails.TypeOfProduct,
-                    Value = request.OrderDetails.Value
-                },
-                ManagerId = managerId
-            });
-            return Results.Ok(new ApiResponse<PrepareOrderResponse?>(
-                result.IsSuccess,
-                result.Error,
-                result.ErrorCode,
-                result.IsSuccess
-                    ? new PrepareOrderResponse
-                    {
-                        Id = (long)result.Data.Id!,
-                        ManagerId = result.Data.ManagerId,
-                        Value = result.Data.OrderDetails.Value,
-                        TypeOfProduct = (TypeOfProduct)result.Data.OrderDetails.TypeOfProduct,
-                        Status = (OrderStatus)result.Data.OrderStatus
-                    }
-                    : null));
+            var orderDto = mapper.Map<OrderDto>(request);
+            orderDto.ManagerId = managerId;
+            
+            var result = await orderService.CreateOrder(orderDto);
+            
+            return Results.Ok(
+                ApiResponse<PrepareOrderResponse>.MapFromResult(mapper.Map<Result<PrepareOrderResponse>>(result)) ?? default);
         });
     }
 }

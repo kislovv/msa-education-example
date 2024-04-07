@@ -12,7 +12,9 @@ public class EndpointProfile : Profile
     public EndpointProfile()
     {
         CreateMap<ManagerRequest, Manager>();
-        CreateMap<OrderRequest, OrderDto>();
+        CreateMap<OrderRequest, OrderDto>().ForMember(or => or.ClientEmail,
+            expression => 
+                expression.MapFrom(dto => dto.Email));
         CreateMap<OrderDetails, OrderDetailsDto>();
         CreateMap<TypeOfProduct, TypeOfProductDto>().ReverseMap();
         CreateMap<OrderStatus, OrderStatusDto>().ReverseMap();
