@@ -1,4 +1,5 @@
 ﻿using ManagerAccount.UseCases.Abstractions;
+using ManagerAccount.UseCases.Abstractions.Entities;
 using ManagerAccount.UseCases.Dtos;
 
 namespace ManagerAccount.Repositories.Frameworks.HubIntegrations;

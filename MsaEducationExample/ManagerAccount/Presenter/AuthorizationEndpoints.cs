@@ -6,6 +6,7 @@ using ManagerAccount.Models.Requests;
 using ManagerAccount.Presenter.Models.Requests;
 using ManagerAccount.Repositories.DataAccess;
 using ManagerAccount.UseCases.Entities;
+using ManagerAccount.UseCases.Entities.Models;
 using Microsoft.IdentityModel.Tokens;
 
 namespace ManagerAccount.Presenter;

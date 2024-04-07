@@ -12,4 +12,9 @@ public class ApiResponse(bool isSuccess, string error, int? errorCode = 0)
 public class ApiResponse<T>(bool isSuccess, string error, int? errorCode, T data) : ApiResponse(isSuccess, error, errorCode)
 {
     public T Data { get; set; } = data;
+    
+    public static ApiResponse<T> MapFromResult(Result<T> input)
+    {
+        return new ApiResponse<T>(input.IsSuccess, input.Error, input.ErrorCode, input.Data);
+    }
 }

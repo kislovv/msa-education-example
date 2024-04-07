@@ -1,8 +1,8 @@
 ﻿using ManagerAccount.UseCases.Dtos;
 
-namespace ManagerAccount.UseCases.Abstractions;
+namespace ManagerAccount.UseCases.Abstractions.Entities;
 
-public interface IHubService
+public interface IOrderService
 {
     Task<Result<OrderDto>> CreateOrder(OrderDto orderDto);
 }

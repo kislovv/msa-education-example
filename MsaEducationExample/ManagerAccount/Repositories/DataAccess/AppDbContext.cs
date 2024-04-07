@@ -1,5 +1,6 @@
 ﻿using ManagerAccount.Models.Requests;
 using ManagerAccount.UseCases.Entities;
+using ManagerAccount.UseCases.Entities.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ManagerAccount.Repositories.DataAccess;

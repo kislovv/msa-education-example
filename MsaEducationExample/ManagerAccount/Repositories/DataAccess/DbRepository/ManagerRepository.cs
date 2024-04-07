@@ -1,26 +1,24 @@
 ﻿using ManagerAccount.UseCases.Abstractions;
+using ManagerAccount.UseCases.Abstractions.Repository;
 using ManagerAccount.UseCases.Entities;
+using ManagerAccount.UseCases.Entities.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ManagerAccount.Repositories.DataAccess.DbRepository;
 
-public class ManagerRepository(AppDbContext appDbContext) : IManagerRepository
+public class ManagerRepository : GenericRepository<Manager>, IManagerRepository
 {
-    public async Task<Manager> Create(Manager manager)
+    internal ManagerRepository(AppDbContext context, ILogger logger) : base(context, logger)
     {
-        var result = await appDbContext.Managers.AddAsync(manager);
-        return result.Entity;
     }
 
-    public async Task<Manager?> GetById(long id)
+    public override async Task<Manager?> GetById(long id)
     {
-        return await appDbContext.Managers
-            .Include(m => m.OrderIds)
-            .SingleOrDefaultAsync(m => m.Id == id);
+        return await Context.Managers.SingleOrDefaultAsync(m => m.Id == id);
     }
 
     public void Update(Manager manager)
     {
-        appDbContext.Managers.Update(manager);
+        throw new NotImplementedException();
     }
 }

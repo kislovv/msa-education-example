@@ -1,13 +1,15 @@
-﻿using ManagerAccount.UseCases.Abstractions;
+﻿using ManagerAccount.UseCases.Abstractions.Entities;
+using ManagerAccount.UseCases.Abstractions.Repository;
 using ManagerAccount.UseCases.Dtos;
+using ManagerAccount.UseCases.Entities.Models;
 
 namespace ManagerAccount.UseCases.Entities.Services;
 
-public class OrderService(IHubService hubService, IManagerRepository managerRepository) : IOrderService
+public class OrderService(IHubService hubService, IUnitOfWork unitOfWork) : IOrderService
 {
     public async Task<Result<OrderDto>> CreateOrder(OrderDto orderDto)
     {
-        var manager = await managerRepository.GetById(orderDto.ManagerId);
+        var manager = await unitOfWork.Managers.GetById(orderDto.ManagerId);
         if (manager is null)
         {
             return new Result<OrderDto>()
@@ -27,7 +29,9 @@ public class OrderService(IHubService hubService, IManagerRepository managerRepo
         {
             Id = (long)result.Data.Id!
         });
-        managerRepository.Update(manager);
+        unitOfWork.Managers.Update(manager);
+        
+        await unitOfWork.CompleteAsync();
 
         return result;
     }

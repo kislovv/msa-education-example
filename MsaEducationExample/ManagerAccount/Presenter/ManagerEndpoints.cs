@@ -5,8 +5,10 @@ using ManagerAccount.Presenter.Models.Requests;
 using ManagerAccount.Presenter.Models.Responses;
 using ManagerAccount.Repositories.DataAccess;
 using ManagerAccount.UseCases.Abstractions;
+using ManagerAccount.UseCases.Abstractions.Entities;
 using ManagerAccount.UseCases.Dtos;
 using ManagerAccount.UseCases.Entities;
+using ManagerAccount.UseCases.Entities.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -51,7 +53,8 @@ public class ManagerEndpoints : CarterModule
                 result.IsSuccess
                     ? new PrepareOrderResponse
                     {
-                        ManagerId = managerId,
+                        Id = (long)result.Data.Id!,
+                        ManagerId = result.Data.ManagerId,
                         Value = result.Data.OrderDetails.Value,
                         TypeOfProduct = (TypeOfProduct)result.Data.OrderDetails.TypeOfProduct,
                         Status = (OrderStatus)result.Data.OrderStatus
