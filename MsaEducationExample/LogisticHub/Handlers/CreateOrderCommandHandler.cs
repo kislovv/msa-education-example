@@ -10,6 +10,7 @@ public class CreateOrderCommandHandler(AppDbContext appDbContext) : IRequestHand
     public async Task<Order> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
     {
         var freeTanker = appDbContext.Tankers.FirstOrDefault(tanker => tanker.FreeVolume >= request.Value);
+        var createdAt = DateTimeOffset.UtcNow;
         if (freeTanker == null)
         {
             return new Order
@@ -17,7 +18,9 @@ public class CreateOrderCommandHandler(AppDbContext appDbContext) : IRequestHand
                 Status = OrderStatus.Rejected,
                 Type = request.Type,
                 Value = request.Value,
-                ClientEmail = request.ClientEmail
+                ClientEmail = request.ClientEmail,
+                CreatedAt = createdAt,
+                UpdatedAt = createdAt
             };
         }
 
@@ -27,7 +30,9 @@ public class CreateOrderCommandHandler(AppDbContext appDbContext) : IRequestHand
             Type = request.Type,
             Value = request.Value,
             ClientEmail = request.ClientEmail,
-            Tanker = freeTanker
+            Tanker = freeTanker,
+            CreatedAt = createdAt,
+            UpdatedAt = createdAt
         }, cancellationToken);
 
         await appDbContext.SaveChangesAsync(cancellationToken);

@@ -5,6 +5,8 @@ namespace LogisticHub.Entities;
 public class Order
 {
     public long Id { get; set; }
+    public DateTimeOffset CreatedAt { get; set; }
+    public DateTimeOffset UpdatedAt { get; set; }
     public string ClientEmail { get; set; }
     public TypeOfProduct Type { get; set; }
     public decimal Value { get; set; }
