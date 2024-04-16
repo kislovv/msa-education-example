@@ -1,9 +1,12 @@
 using Carter;
 using Hangfire;
 using Hangfire.PostgreSql;
+using LogisticHub.Abstraction;
+using LogisticHub.Configurations;
 using LogisticHub.Database;
 using LogisticHub.Handlers;
 using LogisticHub.HostedServices;
+using LogisticHub.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +23,8 @@ builder.Services.AddHangfire(configuration =>
 builder.Services.AddHangfireServer();
 builder.Services.AddHostedService<MigrationHostedService>();
 builder.Services.AddHostedService<CheckExpiredOrdersHandlerService>();
+builder.Services.Configure<RabbitMqConfig>(builder.Configuration.GetSection("RabbitMq"));
+builder.Services.AddScoped<IPushService, PushService>();
 builder.Services.AddMediatR(configuration =>
 {
     configuration.RegisterServicesFromAssembly(typeof(CreateOrderCommandHandler).Assembly);
