@@ -9,9 +9,12 @@
     <ItemGroup>
         <PackageReference Include="AutoMapper" Version="13.0.1" />
         <PackageReference Include="Carter" Version="8.0.0" />
+        <PackageReference Include="EasyNetQ" Version="7.8.0" />
         <PackageReference Include="Hangfire" Version="1.8.12" />
         <PackageReference Include="Hangfire.PostgreSql" Version="1.20.8" />
         <PackageReference Include="Hangfire.PostgreSql.NetCore" Version="1.4.3" />
+        <PackageReference Include="MassTransit" Version="8.2.1" />
+        <PackageReference Include="MassTransit.RabbitMQ" Version="8.2.1" />
         <PackageReference Include="MediatR" Version="12.2.0" />
         <PackageReference Include="EFCore.NamingConventions" Version="8.0.3" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.3" />
@@ -21,6 +24,7 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
         <PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
     </ItemGroup>

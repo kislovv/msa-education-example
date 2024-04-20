@@ -7,11 +7,21 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="EasyNetQ" Version="7.8.0" />
+      <PackageReference Include="MailKit" Version="4.5.0" />
+      <PackageReference Include="MassTransit" Version="8.2.1" />
+      <PackageReference Include="MassTransit.RabbitMQ" Version="8.2.1" />
+      <PackageReference Include="MimeKit" Version="4.5.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
       <PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\MsaSharedContracts\MsaSharedContracts.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="HostedServices\" />
     </ItemGroup>
 
 </Project>
