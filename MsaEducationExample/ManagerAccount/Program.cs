@@ -2,6 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Carter;
+using ManagerAccount.Presenter;
 using ManagerAccount.Presenter.Configurations;
 using ManagerAccount.Repositories.DataAccess;
 using ManagerAccount.Repositories.Frameworks.HubIntegrations;
@@ -23,6 +24,9 @@ builder.Services.AddAutoMapper(expression =>
 builder.Services.AddScoped<IOrderService, OrderService>();
 
 builder.Services.AddCarter();
+builder.Services.AddGrpc(options =>
+{
+});
 
 builder.Services.AddDbContext(builder.Configuration);
 
@@ -33,5 +37,6 @@ builder.Services.AddAuthorization();
 var app = builder.Build();
 
 app.MapCarter();
+app.MapGrpcService<TerminateGrpcService>();
 
 app.Run();

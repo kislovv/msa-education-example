@@ -23,6 +23,12 @@ builder.Services.AddMassTransit(configurator =>
 });
 builder.Services.AddScoped<IMailSender, MailSender>();
 
+builder.Services.AddGrpcClient<Logistic.Status.Proto.TerminateStatusService.TerminateStatusServiceClient>(options =>
+{
+    options.Address = new Uri(builder.Configuration["GrpcManagerClient:Host"]!);
+});
+
+
 var app = builder.Build();
 
 app.Run();

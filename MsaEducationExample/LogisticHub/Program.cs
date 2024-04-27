@@ -29,6 +29,8 @@ builder.Services.AddSingleton<IBus>(RabbitHutch.CreateBus(builder.Configuration[
 
     }));
 
+
+
 builder.Services.AddMassTransit(configurator =>
 {
     configurator.UsingRabbitMq((context, cfg) =>
